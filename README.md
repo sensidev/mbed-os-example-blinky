@@ -9,17 +9,13 @@ Please install [mbed CLI](https://github.com/ARMmbed/mbed-cli#installing-mbed-cl
 From the command line, import the example:
 
 ```
-mbed import mbed-os-example-blinky
-cd mbed-os-example-blinky
+mbed import https://github.com/sensidev/xdot-blinky
+cd xdot-blinky
 ```
 
 ### Now compile
 
-Invoke `mbed compile` specifying the name of your platform and your favorite toolchain (`GCC_ARM`, `ARM`, `IAR`). For example, for the ARM Compiler 5:
-
-```
-mbed compile -m K64F -t ARM
-```
+Compile by executing `./compile.sh`
 
 Your PC may take a few minutes to compile your code. At the end you should get the following result:
 
