@@ -43,34 +43,22 @@ Image: .\.build\K64F\ARM\mbed-os-example-blinky.bin
 ### Program your board
 
 1. Connect your mbed device to the computer over USB.
-1. Copy the binary file to the mbed device .
+1. Copy the binary file to the mbed device.
 1. Press the reset button to start the program.
 
 You should see the LED of your platform turning on and off.
 
-Congratulations if you managed to complete this test!
+One of the Serial connections goes via the mbed USB port, allowing you to easily communicate with your host PC.
 
-## Export the project to Keil MDK and debug your application
+Connect to the serial interface and check the light sensor's data.
 
-From the command line, run the following command:
+e.g. `screen /dev/cu.usbmodem14722 115200`
 
-```
-mbed export -m K64F -i uvision
-```
-
-To debug the application:
-
-1. Start uVision.
-1. Import the uVision project generated earlier.
-1. Compile your application and generate an `.axf` file.
-1. Make sure uVision is configured to debug over CMSIS-DAP (From the Project menu > Options for Target '...' > Debug tab > Use CMSIS-DAP Debugger).
-1. Set breakpoints and start a debug session.
-
-![Image of uVision](img/uvision.png)
+Congratulations if you managed to complete & run this!
 
 ## Troubleshooting
 
-1. Make sure `mbed-cli` is working correctly and its version is greater than `0.8.9`
+Make sure `mbed-cli` is working correctly and its version is greater than `0.8.9`
 
  ```
  mbed --version
@@ -81,5 +69,3 @@ To debug the application:
  ```
  pip install mbed-cli --upgrade
  ```
-
-2. If using Keil MDK, make sure you have a license installed. [MDK-Lite](http://www.keil.com/arm/mdk.asp) has a 32KB restriction on code size.

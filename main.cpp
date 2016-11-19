@@ -35,9 +35,10 @@ int main() {
     btn.fall(&fall);
 
     while (true) {
-        pc.printf("Entering loop\r\n");
         led1 = !led1;
+
         pc.printf("Light: %d \r\n", lux.getData());
+
         Thread::wait(500);
     }
 }
