@@ -16,6 +16,7 @@ static void rise() {
 
 static void fall() {
     pc.printf("FALL\n");
+    led1 = false;
 }
 
 
@@ -34,8 +35,6 @@ int main() {
     btn.fall(&fall);
 
     while (true) {
-        led1 = !led1;
-
         pc.printf("Light: %d \r\n", lux.getData());
 
         Thread::wait(500);
