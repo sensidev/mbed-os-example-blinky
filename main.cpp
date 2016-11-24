@@ -9,7 +9,6 @@ ISL29011 lux(i2c);
 InterruptIn btn(PA_0); /* S2 - button */
 DigitalOut led1(LED1);
 
-
 static void rise() {
     pc.printf("RISE\n");
     led1 = true;
