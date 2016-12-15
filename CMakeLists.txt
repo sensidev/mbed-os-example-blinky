@@ -6,6 +6,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(SOURCE_FILES
     main.cpp)
 
+# Take those from BUILD/xdot_l151cc/GCC_ARM/.includes_*.txt after first mbed build.
 include_directories(
         ISL29011
         mbed-os
