@@ -1,5 +1,6 @@
+.idea/
 .DS_Store
-.build
+BUILD
 .mbed
-projectfiles
-*.py*
+cmake-build-debug/
+mbed*.py*

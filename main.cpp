@@ -1,3 +1,7 @@
+#define DEVICE_SERIAL 1
+#define DEVICE_I2C 1
+#define DEVICE_INTERRUPTIN 1
+
 #include "mbed.h"
 #include "ISL29011.h"
 
@@ -37,6 +41,6 @@ int main() {
     while (true) {
         pc.printf("Light: %d \r\n", lux.getData());
 
-        Thread::wait(500);
+        wait(500);
     }
 }
