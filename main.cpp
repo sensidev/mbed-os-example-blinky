@@ -1,7 +1,4 @@
-#define DEVICE_SERIAL 1
-#define DEVICE_I2C 1
-#define DEVICE_INTERRUPTIN 1
-
+#include "xdot_device.h"
 #include "mbed.h"
 #include "ISL29011.h"
 
@@ -13,12 +10,12 @@ ISL29011 lux(i2c);
 InterruptIn btn(PA_0); /* S2 - button */
 DigitalOut led1(LED1);
 
-static void rise() {
+void rise() {
     pc.printf("RISE\n");
     led1 = true;
 }
 
-static void fall() {
+void fall() {
     pc.printf("FALL\n");
     led1 = false;
 }
