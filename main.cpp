@@ -1,5 +1,5 @@
-#include "xdot_device.h"
 #include "mbed.h"
+#include "rtos.h"
 #include "ISL29011.h"
 
 static Serial pc(USBTX, USBRX);
@@ -12,12 +12,12 @@ DigitalOut led1(LED1);
 
 void rise() {
     pc.printf("RISE\n");
-    led1 = true;
+    led1.write(true);
 }
 
 void fall() {
     pc.printf("FALL\n");
-    led1 = false;
+    led1.write(false);
 }
 
 
@@ -38,6 +38,6 @@ int main() {
     while (true) {
         pc.printf("Light: %d \r\n", lux.getData());
 
-        wait(500);
+        Thread::wait(500);
     }
 }

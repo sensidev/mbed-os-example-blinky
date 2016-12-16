@@ -3,10 +3,12 @@ project(xdot_blinky)
 
 set(CMAKE_CXX_STANDARD 11)
 
+# Add all your source files where you need CLion refactoring support.
 set(SOURCE_FILES
     main.cpp)
 
 # Take those from BUILD/xdot_l151cc/GCC_ARM/.includes_*.txt after first mbed build.
+# This allows your CLion IDE to find the headers and avoid "Can't find" warnings.
 include_directories(
         ISL29011
         mbed-os
@@ -54,6 +56,27 @@ include_directories(
         mbed-os/targets/TARGET_STM/TARGET_STM32L1/TARGET_XDOT_L151CC/device
         mbed-os/targets/TARGET_STM/TARGET_STM32L1/TARGET_XDOT_L151CC/device/TOOLCHAIN_GCC_ARM
         mbed-os/targets/TARGET_STM/TARGET_STM32L1/device
+)
+
+# Take those from mbed-os/targets/targets.json for your particular target.
+# Below are xdot device features.
+# This allows your CLion IDE to identify I2C, Serial etc and avoid "Can't resolve type" warnings.
+add_definitions(
+        -DDEVICE_ANALOGIN=1
+        -DDEVICE_ANALOGOUT=1
+        -DDEVICE_I2C=1
+        -DDEVICE_I2CSLAVE=1
+        -DDEVICE_INTERRUPTIN=1
+        -DDEVICE_PORTIN=1
+        -DDEVICE_PORTINOUT=1
+        -DDEVICE_PORTOUT=1
+        -DDEVICE_PWMOUT=1
+        -DDEVICE_RTC=1
+        -DDEVICE_SERIAL=1
+        -DDEVICE_SLEEP=1
+        -DDEVICE_SPI=1
+        -DDEVICE_SPISLAVE=1
+        -DDEVICE_STDIO_MESSAGES=1
 )
 
 add_executable(xdot_blinky ${SOURCE_FILES})
