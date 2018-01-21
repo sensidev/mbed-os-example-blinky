@@ -4,3 +4,8 @@ BUILD
 .mbed
 cmake-build-debug/
 mbed*.py*
+
+
+# Mbed libs
+mbed-os/
+ISL29011/

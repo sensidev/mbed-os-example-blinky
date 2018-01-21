@@ -60,6 +60,20 @@ while [ "$1" != "" ]; do
     shift
 done
 
+# Build virtualenv if is not already there
+if [ ! -d "../virtualenv" ]; then
+    virtualenv ../virtualenv
+    source ../virtualenv/bin/activate
+    pip install -r mbed-os/requirements.txt
+fi
+
+source ../virtualenv/bin/activate
+
+# Deploy mbed if not already deployed
+if [ ! -f ".mbed" ]; then
+    mbed-cli deploy
+fi
+
 # Skip compiling and flash the existing binary.
 if [ "${USE_PREVIOUS_BUILD}" == false ]; then
     echo "[INFO] Device name: ${DEVICE_NAME}"

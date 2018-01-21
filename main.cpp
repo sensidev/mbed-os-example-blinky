@@ -12,12 +12,10 @@ DigitalOut led1(LED1);
 
 void rise() {
     pc.printf("RISE\n");
-    led1.write(true);
 }
 
 void fall() {
     pc.printf("FALL\n");
-    led1.write(false);
 }
 
 
@@ -37,6 +35,7 @@ int main() {
 
     while (true) {
         pc.printf("Light: %d \r\n", lux.getData());
+        led1 = !led1;
 
         Thread::wait(500);
     }
