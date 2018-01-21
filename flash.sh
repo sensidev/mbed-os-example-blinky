@@ -64,15 +64,19 @@ done
 if [ ! -d "../virtualenv" ]; then
     virtualenv ../virtualenv
     source ../virtualenv/bin/activate
+
+    pip install mbed-cli
+
+    # Deploy mbed if not already deployed
+    if [ ! -f ".mbed" ]; then
+        echo "[INFO] Mbed deploy"
+        mbed-cli deploy
+    fi
+
     pip install -r mbed-os/requirements.txt
 fi
 
 source ../virtualenv/bin/activate
-
-# Deploy mbed if not already deployed
-if [ ! -f ".mbed" ]; then
-    mbed-cli deploy
-fi
 
 # Skip compiling and flash the existing binary.
 if [ "${USE_PREVIOUS_BUILD}" == false ]; then
