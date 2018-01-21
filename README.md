@@ -8,6 +8,9 @@ Original repository:
  
 https://developer.mbed.org/teams/mbed-os-examples/code/mbed-os-example-blinky/
 
+# Setup
+
+Please follow the tutorial https://hackmd.io/s/r196eUWBG
 
 # CLion IDE
 
@@ -15,7 +18,7 @@ https://developer.mbed.org/teams/mbed-os-examples/code/mbed-os-example-blinky/
 1. Import the project from source.
 1. Select project files: only `main.cpp` for now.
 1. Create a new Bash Run/Debug Configuration to be able to build from within the IDE.
-    1. Script: `flash.sh`
+    1. Script: `flashit`
     1. Interpreter path: `/bin/bash`
     1. Program arguments: `-t=xdot -c`
 1. Run that! You should see stuff built in `BUILD` folder.
